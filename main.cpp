@@ -20,31 +20,34 @@ void ciagi::wczyt() {
 	string ciag;
 	if(plik.good()) {
 		while(!plik.eof()) {
-			plik>>ciag;
+		plik>>ciag;
 			if(this->sprawdzenie(ciag)) {
-				cout<<ciag<<"\n";
+			cout<<ciag<<"\n";
 			}
 		}		
 	}
 }
 bool ciagi::sprawdzenie(string ciag) {
 	if(ciag.length()%2==0) {
-		string s1 = ciag.substr(0, ciag.length()/2);
-		string s2 = ciag.substr(ciag.length()/2, ciag.length()/2);
+	string s1 = ciag.substr(0, ciag.length()/2);
+	string s2 = ciag.substr(ciag.length()/2, ciag.length()/2);
 		if(s1==s2) {
-			return true;
+		return true;
 		}
-		else {
+			else {
 			return false;
 		}
 	}
-	else{
+		else{
 		return false;
 	}
 }
 ciagi::~ciagi() {
 	plik.close();
 }
+
+
+
 
 int main(int argc, char** argv) {
 	ciagi c;
